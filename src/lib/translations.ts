@@ -16,46 +16,50 @@ export const translations = {
     
     // Landing Page
     landing: {
-      heroTitle: 'Revolutionize Farming with AI',
-      heroSubtitle: 'Harness the power of artificial intelligence to optimize crop yields, predict weather patterns, and make data-driven farming decisions.',
-      getStarted: 'Get Started Free',
-      learnMore: 'Learn More',
-      watchDemo: 'Watch Demo',
-      
-      // Features
-      featuresTitle: 'Powerful Features for Modern Farmers',
-      featuresSubtitle: 'Everything you need to transform your agricultural operations',
-      
-      feature1Title: 'AI Yield Predictions',
-      feature1Desc: 'Get accurate crop yield forecasts using advanced machine learning models trained on local agricultural data.',
-      
-      feature2Title: 'Offline Access',
-      feature2Desc: 'Work seamlessly even without internet. All your data syncs automatically when you reconnect.',
-      
-      feature3Title: 'Smart Chatbot',
-      feature3Desc: 'Get instant answers to farming questions in English or Bengali from our AI assistant.',
-      
-      feature4Title: 'Data Dashboard',
-      feature4Desc: 'Visualize satellite imagery, IoT sensor data, and historical trends in one place.',
-      
-      // Stats
-      statsTitle: 'Trusted by Farmers Across Bangladesh',
-      farmers: 'Active Farmers',
-      villages: 'Villages Covered',
-      predictions: 'Predictions Made',
-      accuracy: 'Accuracy Rate',
-      
-      // CTA
-      ctaTitle: 'Ready to Transform Your Farm?',
-      ctaSubtitle: 'Join thousands of farmers already using AgriAI Hub to increase their yields.',
-      startFree: 'Start Free Trial',
-      
-      // Footer
-      about: 'About',
-      contact: 'Contact',
-      privacy: 'Privacy Policy',
-      terms: 'Terms of Service',
-      copyright: '© 2024 AgriAI Hub. All rights reserved.',
+      badge: 'AI-Powered Agriculture Platform',
+      hero: {
+        title: 'Revolutionize Farming with AI',
+        subtitle: 'Harness the power of artificial intelligence to optimize crop yields, predict weather patterns, and make data-driven farming decisions.',
+      },
+      features: {
+        title: 'Powerful Features for Modern Farmers',
+        yield: {
+          title: 'AI Yield Predictions',
+          desc: 'Get accurate crop yield forecasts using advanced machine learning models trained on local agricultural data.',
+        },
+        offline: {
+          title: 'Offline Access',
+          desc: 'Work seamlessly even without internet. All your data syncs automatically when you reconnect.',
+        },
+        chat: {
+          title: 'Smart Chatbot',
+          desc: 'Get instant answers to farming questions in English or Bengali from our AI assistant.',
+        },
+        dashboard: {
+          title: 'Data Dashboard',
+          desc: 'Visualize satellite imagery, IoT sensor data, and historical trends in one place.',
+        },
+      },
+      stats: {
+        farmers: 'Active Farmers',
+        villages: 'Villages Covered',
+        accuracy: 'Accuracy Rate',
+        support: '24/7 Support',
+      },
+      cta: {
+        getStarted: 'Get Started Free',
+        watchDemo: 'Watch Demo',
+        title: 'Ready to Transform Your Farm?',
+        subtitle: 'Join thousands of farmers already using AgriAI Hub to increase their yields.',
+        startFree: 'Start Free Trial',
+        contact: 'Contact Sales',
+      },
+      footer: {
+        about: 'About',
+        contact: 'Contact',
+        privacy: 'Privacy Policy',
+        terms: 'Terms of Service',
+      },
     },
     
     // Auth
@@ -216,46 +220,50 @@ export const translations = {
     
     // Landing Page
     landing: {
-      heroTitle: 'কৃত্রিম বুদ্ধিমত্তায় কৃষি বিপ্লব',
-      heroSubtitle: 'ফসলের ফলন অপ্টিমাইজ করতে, আবহাওয়ার পূর্বাভাস দিতে এবং তথ্য-ভিত্তিক কৃষি সিদ্ধান্ত নিতে কৃত্রিম বুদ্ধিমত্তার শক্তি ব্যবহার করুন।',
-      getStarted: 'বিনামূল্যে শুরু করুন',
-      learnMore: 'আরও জানুন',
-      watchDemo: 'ডেমো দেখুন',
-      
-      // Features
-      featuresTitle: 'আধুনিক কৃষকদের জন্য শক্তিশালী বৈশিষ্ট্য',
-      featuresSubtitle: 'আপনার কৃষি কার্যক্রম রূপান্তর করতে যা প্রয়োজন সব কিছু',
-      
-      feature1Title: 'এআই ফলন পূর্বাভাস',
-      feature1Desc: 'স্থানীয় কৃষি তথ্যে প্রশিক্ষিত উন্নত মেশিন লার্নিং মডেল ব্যবহার করে সঠিক ফসল ফলনের পূর্বাভাস পান।',
-      
-      feature2Title: 'অফলাইন অ্যাক্সেস',
-      feature2Desc: 'ইন্টারনেট ছাড়াও নির্বিঘ্নে কাজ করুন। আপনি পুনরায় সংযোগ করলে সমস্ত ডেটা স্বয়ংক্রিয়ভাবে সিঙ্ক হয়।',
-      
-      feature3Title: 'স্মার্ট চ্যাটবট',
-      feature3Desc: 'আমাদের এআই সহকারীর কাছ থেকে বাংলা বা ইংরেজিতে কৃষি প্রশ্নের তাৎক্ষণিক উত্তর পান।',
-      
-      feature4Title: 'ডেটা ড্যাশবোর্ড',
-      feature4Desc: 'স্যাটেলাইট ছবি, আইওটি সেন্সর ডেটা এবং ঐতিহাসিক প্রবণতা এক জায়গায় দেখুন।',
-      
-      // Stats
-      statsTitle: 'বাংলাদেশ জুড়ে কৃষকদের বিশ্বাস',
-      farmers: 'সক্রিয় কৃষক',
-      villages: 'গ্রাম কভার করা হয়েছে',
-      predictions: 'পূর্বাভাস করা হয়েছে',
-      accuracy: 'নির্ভুলতার হার',
-      
-      // CTA
-      ctaTitle: 'আপনার খামার রূপান্তর করতে প্রস্তুত?',
-      ctaSubtitle: 'হাজার হাজার কৃষক যারা ইতিমধ্যে AgriAI Hub ব্যবহার করে তাদের ফলন বাড়াচ্ছে, তাদের সাথে যোগ দিন।',
-      startFree: 'বিনামূল্যে ট্রায়াল শুরু করুন',
-      
-      // Footer
-      about: 'সম্পর্কে',
-      contact: 'যোগাযোগ',
-      privacy: 'গোপনীয়তা নীতি',
-      terms: 'সেবার শর্তাবলী',
-      copyright: '© ২০২৪ AgriAI Hub. সর্বস্বত্ব সংরক্ষিত।',
+      badge: 'এআই-চালিত কৃষি প্ল্যাটফর্ম',
+      hero: {
+        title: 'কৃত্রিম বুদ্ধিমত্তায় কৃষি বিপ্লব',
+        subtitle: 'ফসলের ফলন অপ্টিমাইজ করতে, আবহাওয়ার পূর্বাভাস দিতে এবং তথ্য-ভিত্তিক কৃষি সিদ্ধান্ত নিতে কৃত্রিম বুদ্ধিমত্তার শক্তি ব্যবহার করুন।',
+      },
+      features: {
+        title: 'আধুনিক কৃষকদের জন্য শক্তিশালী বৈশিষ্ট্য',
+        yield: {
+          title: 'এআই ফলন পূর্বাভাস',
+          desc: 'স্থানীয় কৃষি তথ্যে প্রশিক্ষিত উন্নত মেশিন লার্নিং মডেল ব্যবহার করে সঠিক ফসল ফলনের পূর্বাভাস পান।',
+        },
+        offline: {
+          title: 'অফলাইন অ্যাক্সেস',
+          desc: 'ইন্টারনেট ছাড়াও নির্বিঘ্নে কাজ করুন। আপনি পুনরায় সংযোগ করলে সমস্ত ডেটা স্বয়ংক্রিয়ভাবে সিঙ্ক হয়।',
+        },
+        chat: {
+          title: 'স্মার্ট চ্যাটবট',
+          desc: 'আমাদের এআই সহকারীর কাছ থেকে বাংলা বা ইংরেজিতে কৃষি প্রশ্নের তাৎক্ষণিক উত্তর পান।',
+        },
+        dashboard: {
+          title: 'ডেটা ড্যাশবোর্ড',
+          desc: 'স্যাটেলাইট ছবি, আইওটি সেন্সর ডেটা এবং ঐতিহাসিক প্রবণতা এক জায়গায় দেখুন।',
+        },
+      },
+      stats: {
+        farmers: 'সক্রিয় কৃষক',
+        villages: 'গ্রাম কভার করা হয়েছে',
+        accuracy: 'নির্ভুলতার হার',
+        support: '২৪/৭ সাপোর্ট',
+      },
+      cta: {
+        getStarted: 'বিনামূল্যে শুরু করুন',
+        watchDemo: 'ডেমো দেখুন',
+        title: 'আপনার খামার রূপান্তর করতে প্রস্তুত?',
+        subtitle: 'হাজার হাজার কৃষক যারা ইতিমধ্যে AgriAI Hub ব্যবহার করে তাদের ফলন বাড়াচ্ছে, তাদের সাথে যোগ দিন।',
+        startFree: 'বিনামূল্যে ট্রায়াল শুরু করুন',
+        contact: 'বিক্রয়ের সাথে যোগাযোগ করুন',
+      },
+      footer: {
+        about: 'সম্পর্কে',
+        contact: 'যোগাযোগ',
+        privacy: 'গোপনীয়তা নীতি',
+        terms: 'সেবার শর্তাবলী',
+      },
     },
     
     // Auth
