@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useNavigate, useSearchParams } from 'react-router-dom';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { useAuth } from '@/contexts/AuthContext';
+import { TopBar } from '@/components/TopBar';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
@@ -81,7 +82,9 @@ export default function Auth() {
   ];
 
   return (
-    <div className="min-h-screen flex">
+    <div className="min-h-screen flex flex-col">
+      <TopBar />
+      <div className="flex-1 flex">
       {/* Left Panel - Premium Branding */}
       <motion.div 
         className="hidden lg:flex lg:w-1/2 relative overflow-hidden"
@@ -359,6 +362,16 @@ export default function Auth() {
           </Card>
         </div>
       </motion.div>
+      </div>
+      
+      {/* Minimal Footer for Auth */}
+      <div className="py-4 bg-muted/30 border-t border-border/50">
+        <div className="container mx-auto px-4 text-center">
+          <p className="text-xs text-muted-foreground">
+            © {new Date().getFullYear()} AgriAI Hub. All rights reserved.
+          </p>
+        </div>
+      </div>
     </div>
   );
 }

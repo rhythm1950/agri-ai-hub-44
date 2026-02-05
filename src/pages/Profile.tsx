@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { useAuth } from '@/contexts/AuthContext';
 import { Navbar } from '@/components/Navbar';
+import { TopBar } from '@/components/TopBar';
+import { Footer } from '@/components/Footer';
 import { LivingFieldBackground } from '@/components/LivingFieldBackground';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
@@ -12,6 +14,7 @@ import { Badge } from '@/components/ui/badge';
 import { Separator } from '@/components/ui/separator';
 import { toast } from '@/hooks/use-toast';
 import { useNavigate } from 'react-router-dom';
+import { Chatbot } from '@/components/Chatbot';
 import { motion } from 'framer-motion';
 import { 
   User, MapPin, Bell, Globe, Shield, Camera, 
@@ -83,10 +86,11 @@ export default function Profile() {
 
   return (
     <div className="min-h-screen bg-background">
+      <TopBar />
       <LivingFieldBackground />
       <Navbar />
       
-      <div className="pt-24 lg:pt-28 pb-12">
+      <div className="pt-32 lg:pt-36 pb-12">
         <div className="container mx-auto px-4 lg:px-8 max-w-4xl">
           {/* Header */}
           <motion.div className="mb-8" {...fadeInUp}>
@@ -370,6 +374,9 @@ export default function Profile() {
           </div>
         </div>
       </div>
+      
+      <Footer />
+      <Chatbot />
     </div>
   );
 }
