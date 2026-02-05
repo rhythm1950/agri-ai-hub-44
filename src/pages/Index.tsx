@@ -142,14 +142,14 @@ export default function Index() {
             </motion.div>
             
             <motion.h1 
-              className="text-foreground mb-8"
+              className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-foreground mb-8 leading-[1.1] tracking-tight"
               initial="hidden"
               animate="visible"
               custom={1}
               variants={fadeUpVariant}
             >
               {t.landing.hero.title.split(' ').slice(0, 2).join(' ')}
-              <span className="text-gradient-gold block mt-2">
+              <span className="text-gradient-gold block mt-3">
                 {t.landing.hero.title.split(' ').slice(2).join(' ')}
               </span>
             </motion.h1>
