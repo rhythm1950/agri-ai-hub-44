@@ -3,6 +3,8 @@ import { useNavigate } from 'react-router-dom';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { useAuth } from '@/contexts/AuthContext';
 import { Navbar } from '@/components/Navbar';
+import { TopBar } from '@/components/TopBar';
+import { Footer } from '@/components/Footer';
 import { LivingFieldBackground } from '@/components/LivingFieldBackground';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
@@ -70,10 +72,11 @@ export default function Dashboard() {
 
   return (
     <div className="min-h-screen bg-background">
+      <TopBar />
       <LivingFieldBackground />
       <Navbar />
       
-      <div className="pt-24 lg:pt-28 pb-12">
+      <div className="pt-32 lg:pt-36 pb-12">
         <div className="container mx-auto px-4 lg:px-8">
           {/* Welcome Header */}
           <motion.div 
@@ -179,6 +182,7 @@ export default function Dashboard() {
         </div>
       </div>
       
+      <Footer />
       <Chatbot />
     </div>
   );

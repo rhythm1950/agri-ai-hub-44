@@ -3,6 +3,8 @@ import { Link, useNavigate } from 'react-router-dom';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { useAuth } from '@/contexts/AuthContext';
 import { Navbar } from '@/components/Navbar';
+import { TopBar } from '@/components/TopBar';
+import { Footer } from '@/components/Footer';
 import { LivingFieldBackground } from '@/components/LivingFieldBackground';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
@@ -113,11 +115,12 @@ export default function Index() {
 
   return (
     <div className="min-h-screen bg-background overflow-x-hidden">
+      <TopBar />
       <LivingFieldBackground />
       <Navbar />
       
       {/* Hero Section */}
-      <section className="relative pt-28 pb-24 lg:pt-40 lg:pb-36 overflow-hidden">
+      <section className="relative pt-36 pb-24 lg:pt-48 lg:pb-36 overflow-hidden">
         {/* Ambient Background */}
         <div className="absolute inset-0 pointer-events-none">
           <div className="absolute top-20 left-1/4 w-[600px] h-[600px] bg-primary/5 rounded-full blur-[120px] animate-float-slow" />
@@ -508,26 +511,7 @@ export default function Index() {
         </div>
       </section>
 
-      {/* Footer */}
-      <footer className="py-16 bg-primary text-primary-foreground">
-        <div className="container mx-auto px-4 lg:px-8">
-          <div className="flex flex-col md:flex-row items-center justify-between gap-6">
-            <div className="flex items-center gap-3">
-              <div className="w-10 h-10 rounded-xl bg-white/10 flex items-center justify-center">
-                <Leaf className="h-5 w-5" />
-              </div>
-              <div>
-                <span className="font-bold text-lg">AgriAI Hub</span>
-                <p className="text-xs text-white/60">Intelligent Farming Platform</p>
-              </div>
-            </div>
-            <p className="text-sm text-white/60">
-              © 2024 AgriAI Hub. All rights reserved.
-            </p>
-          </div>
-        </div>
-      </footer>
-      
+      <Footer />
       <Chatbot />
     </div>
   );
