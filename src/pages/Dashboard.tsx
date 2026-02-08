@@ -76,7 +76,7 @@ export default function Dashboard() {
       <LivingFieldBackground />
       <Navbar />
       
-      <div className="pt-32 lg:pt-36 pb-12">
+      <div className="pt-8 pb-12">
         <div className="container mx-auto px-4 lg:px-8">
           {/* Welcome Header */}
           <motion.div 

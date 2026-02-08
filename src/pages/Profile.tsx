@@ -90,7 +90,7 @@ export default function Profile() {
       <LivingFieldBackground />
       <Navbar />
       
-      <div className="pt-32 lg:pt-36 pb-12">
+      <div className="pt-8 pb-12">
         <div className="container mx-auto px-4 lg:px-8 max-w-4xl">
           {/* Header */}
           <motion.div className="mb-8" {...fadeInUp}>
