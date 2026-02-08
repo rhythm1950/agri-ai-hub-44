@@ -10,13 +10,22 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Chatbot } from '@/components/Chatbot';
-import { motion } from 'framer-motion';
+import { motion, type Easing } from 'framer-motion';
 import { 
   Brain, Wifi, MessageSquare, BarChart3, Leaf, 
   ArrowRight, CheckCircle2, Users, MapPin, TrendingUp,
   Sprout, CloudSun, Smartphone, Shield, Zap, Globe,
   ChevronRight, Play, Star, Sparkles
 } from 'lucide-react';
+
+// New Section Components
+import { HowItWorks } from '@/components/landing/HowItWorks';
+import { FeaturesShowcase } from '@/components/landing/FeaturesShowcase';
+import { TrustedBy } from '@/components/landing/TrustedBy';
+import { Pricing } from '@/components/landing/Pricing';
+import { FAQ } from '@/components/landing/FAQ';
+
+const easeOut: Easing = [0.0, 0.0, 0.2, 1];
 
 const fadeUpVariant = {
   hidden: { opacity: 0, y: 30 },
@@ -26,7 +35,7 @@ const fadeUpVariant = {
     transition: {
       duration: 0.6,
       delay: delay * 0.1,
-      ease: "easeOut" as const,
+      ease: easeOut,
     },
   }),
 };
@@ -116,11 +125,11 @@ export default function Index() {
   return (
     <div className="min-h-screen bg-background overflow-x-hidden">
       <TopBar />
-      <LivingFieldBackground />
       <Navbar />
+      <LivingFieldBackground />
       
       {/* Hero Section */}
-      <section className="relative pt-36 pb-24 lg:pt-48 lg:pb-36 overflow-hidden">
+      <section className="relative pt-20 pb-24 lg:pt-32 lg:pb-36 overflow-hidden">
         {/* Ambient Background */}
         <div className="absolute inset-0 pointer-events-none">
           <div className="absolute top-20 left-1/4 w-[600px] h-[600px] bg-primary/5 rounded-full blur-[120px] animate-float-slow" />
@@ -128,8 +137,19 @@ export default function Index() {
           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-tech-teal/3 rounded-full blur-[150px]" />
         </div>
         
+        {/* Hero Image Background */}
+        <div className="absolute inset-0 pointer-events-none overflow-hidden">
+          <div className="absolute right-0 top-1/2 -translate-y-1/2 w-[50%] h-[80%] opacity-20 lg:opacity-30">
+            <img 
+              src="https://images.unsplash.com/photo-1625246333195-78d9c38ad449?w=1200&h=800&fit=crop" 
+              alt="Agricultural field"
+              className="w-full h-full object-cover rounded-l-[3rem] mask-gradient-left"
+            />
+          </div>
+        </div>
+        
         <div className="container mx-auto px-4 lg:px-8 relative">
-          <div className="max-w-5xl mx-auto text-center">
+          <div className="max-w-4xl">
             <motion.div
               initial={{ opacity: 0, scale: 0.9 }}
               animate={{ opacity: 1, scale: 1 }}
@@ -155,7 +175,7 @@ export default function Index() {
             </motion.h1>
             
             <motion.p 
-              className="text-xl lg:text-2xl text-muted-foreground max-w-3xl mx-auto mb-12 font-bengali leading-relaxed"
+              className="text-xl lg:text-2xl text-muted-foreground max-w-2xl mb-12 font-bengali leading-relaxed"
               initial="hidden"
               animate="visible"
               custom={2}
@@ -165,7 +185,7 @@ export default function Index() {
             </motion.p>
             
             <motion.div 
-              className="flex flex-col sm:flex-row gap-4 justify-center mb-12"
+              className="flex flex-col sm:flex-row gap-4 mb-12"
               initial="hidden"
               animate="visible"
               custom={3}
@@ -191,7 +211,7 @@ export default function Index() {
 
             {/* Trust Badges */}
             <motion.div 
-              className="flex flex-wrap justify-center items-center gap-8 text-muted-foreground"
+              className="flex flex-wrap items-center gap-8 text-muted-foreground"
               initial="hidden"
               animate="visible"
               custom={4}
@@ -245,62 +265,11 @@ export default function Index() {
         </div>
       </section>
 
-      {/* Features Section */}
-      <section className="py-24 lg:py-32 bg-muted/30">
-        <div className="container mx-auto px-4 lg:px-8">
-          <motion.div 
-            className="text-center max-w-3xl mx-auto mb-16"
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            variants={fadeUpVariant}
-            custom={0}
-          >
-            <Badge className="mb-6 bg-harvest-gold/10 text-harvest-gold border-harvest-gold/20 rounded-full px-4 py-1.5">
-              Features
-            </Badge>
-            <h2 className="text-foreground mb-6">
-              {t.landing.features.title}
-            </h2>
-            <p className="text-lg text-muted-foreground">
-              Everything you need to transform your farming operations with the power of AI
-            </p>
-          </motion.div>
+      {/* How It Works Section */}
+      <HowItWorks />
 
-          <motion.div 
-            className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6"
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: "-50px" }}
-            variants={staggerContainer}
-          >
-            {features.map((feature, index) => (
-              <motion.div key={index} variants={fadeUpVariant} custom={index}>
-                <Card className="group relative overflow-hidden border-0 shadow-card hover:shadow-xl transition-all duration-500 hover:-translate-y-2 bg-card/80 backdrop-blur-sm h-full">
-                  <CardContent className="p-8">
-                    <motion.div 
-                      className={`w-14 h-14 rounded-2xl bg-gradient-to-br ${feature.gradient} flex items-center justify-center mb-6 shadow-lg`}
-                      whileHover={{ scale: 1.1, rotate: 5 }}
-                      transition={{ type: "spring", stiffness: 400 }}
-                    >
-                      <feature.icon className="h-7 w-7 text-white" />
-                    </motion.div>
-                    <h3 className="text-xl font-semibold text-foreground mb-3 group-hover:text-primary transition-colors">
-                      {feature.title}
-                    </h3>
-                    <p className="text-muted-foreground leading-relaxed">
-                      {feature.description}
-                    </p>
-                    <div className="mt-5 flex items-center text-primary font-medium opacity-0 group-hover:opacity-100 transition-all duration-300 translate-y-2 group-hover:translate-y-0">
-                      Learn more <ChevronRight className="h-4 w-4 ml-1" />
-                    </div>
-                  </CardContent>
-                </Card>
-              </motion.div>
-            ))}
-          </motion.div>
-        </div>
-      </section>
+      {/* Features Showcase Section */}
+      <FeaturesShowcase />
 
       {/* Benefits Section */}
       <section className="py-24 lg:py-32">
@@ -351,60 +320,42 @@ export default function Index() {
               transition={{ duration: 0.6 }}
             >
               <div className="absolute -inset-4 bg-gradient-to-br from-primary/10 via-tech-teal/10 to-harvest-gold/10 rounded-[2rem] blur-2xl" />
-              <Card className="relative bg-card/90 backdrop-blur-xl rounded-3xl shadow-2xl border-0 overflow-hidden">
-                <div className="absolute top-0 right-0 w-32 h-32 bg-harvest-gold/10 rounded-full blur-2xl" />
-                <CardContent className="p-8">
-                  <div className="space-y-6">
-                    {/* Mock Dashboard Preview */}
-                    <div className="flex items-center justify-between">
-                      <div className="flex items-center gap-3">
-                        <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center">
-                          <Leaf className="h-6 w-6 text-primary" />
-                        </div>
-                        <div>
-                          <p className="font-semibold text-foreground">Yield Prediction</p>
-                          <p className="text-sm text-muted-foreground">Rice - Aman Season</p>
-                        </div>
+              
+              {/* Hero Image */}
+              <div className="relative rounded-3xl overflow-hidden shadow-2xl">
+                <img 
+                  src="https://images.unsplash.com/photo-1500937386664-56d1dfef3854?w=800&h=600&fit=crop" 
+                  alt="Farmer using technology"
+                  className="w-full h-[400px] object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-primary/80 via-primary/20 to-transparent" />
+                
+                {/* Overlay Stats */}
+                <div className="absolute bottom-0 left-0 right-0 p-8">
+                  <div className="grid grid-cols-3 gap-4">
+                    {[
+                      { label: 'Yield Boost', value: '+40%' },
+                      { label: 'Cost Saved', value: '₹50K' },
+                      { label: 'Time Saved', value: '15hrs/wk' },
+                    ].map((item, i) => (
+                      <div key={i} className="text-center">
+                        <p className="text-2xl font-bold text-white">{item.value}</p>
+                        <p className="text-xs text-white/70">{item.label}</p>
                       </div>
-                      <Badge className="bg-tech-teal/10 text-tech-teal border-0">95% confident</Badge>
-                    </div>
-                    
-                    <div className="h-44 bg-gradient-to-b from-muted/30 to-muted/50 rounded-2xl flex items-end justify-around p-5 relative overflow-hidden">
-                      <div className="absolute inset-0 bg-[linear-gradient(to_right,transparent_0%,hsl(var(--primary)/0.03)_50%,transparent_100%)]" />
-                      {[65, 80, 55, 90, 75, 85].map((height, i) => (
-                        <motion.div 
-                          key={i}
-                          className="w-8 bg-gradient-to-t from-primary to-tech-teal rounded-t-lg relative"
-                          initial={{ height: 0 }}
-                          whileInView={{ height: `${height}%` }}
-                          viewport={{ once: true }}
-                          transition={{ delay: i * 0.1, duration: 0.5, ease: "easeOut" }}
-                        />
-                      ))}
-                    </div>
-                    
-                    <div className="grid grid-cols-3 gap-4">
-                      {[
-                        { label: 'Predicted', value: '4.2 tons/ha' },
-                        { label: 'Increase', value: '+35%' },
-                        { label: 'ROI', value: '3.2x' },
-                      ].map((item, i) => (
-                        <div key={i} className="text-center p-4 rounded-xl bg-muted/50">
-                          <p className="text-xs text-muted-foreground mb-1">{item.label}</p>
-                          <p className="font-semibold text-primary">{item.value}</p>
-                        </div>
-                      ))}
-                    </div>
+                    ))}
                   </div>
-                </CardContent>
-              </Card>
+                </div>
+              </div>
             </motion.div>
           </div>
         </div>
       </section>
 
+      {/* Trusted By Section */}
+      <TrustedBy />
+
       {/* Testimonials Section */}
-      <section className="py-24 lg:py-32 bg-muted/30">
+      <section className="py-24 lg:py-32">
         <div className="container mx-auto px-4 lg:px-8">
           <motion.div 
             className="text-center max-w-3xl mx-auto mb-16"
@@ -420,6 +371,9 @@ export default function Index() {
             <h2 className="text-foreground mb-6">
               Trusted by farmers across Bangladesh
             </h2>
+            <p className="text-lg text-muted-foreground">
+              See how AgriAI Hub is transforming agriculture for thousands of farmers
+            </p>
           </motion.div>
 
           <motion.div 
@@ -459,6 +413,12 @@ export default function Index() {
           </motion.div>
         </div>
       </section>
+
+      {/* Pricing Section */}
+      <Pricing />
+
+      {/* FAQ Section */}
+      <FAQ />
 
       {/* CTA Section */}
       <section className="py-24 lg:py-32 relative overflow-hidden">
