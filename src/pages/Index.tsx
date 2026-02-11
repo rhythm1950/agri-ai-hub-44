@@ -162,15 +162,15 @@ export default function Index() {
             </motion.div>
             
             <motion.h1 
-              className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-foreground mb-8 leading-[1.1] tracking-tight"
+              className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-foreground mb-8 leading-[1.1] tracking-tight"
               initial="hidden"
               animate="visible"
               custom={1}
               variants={fadeUpVariant}
             >
-              {t.landing.hero.title.split(' ').slice(0, 2).join(' ')}
-              <span className="text-gradient-gold block mt-3">
-                {t.landing.hero.title.split(' ').slice(2).join(' ')}
+              {t.landing.hero.title.split(' ').slice(0, 3).join(' ')}
+              <span className="text-gradient-gold block mt-2">
+                {t.landing.hero.title.split(' ').slice(3).join(' ')}
               </span>
             </motion.h1>
             
@@ -421,19 +421,11 @@ export default function Index() {
       <FAQ />
 
       {/* CTA Section */}
-      <section className="py-24 lg:py-32 relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-primary via-primary to-earth-green-dark" />
-        <div className="absolute inset-0 opacity-10">
-          <div className="absolute inset-0" style={{ 
-            backgroundImage: 'radial-gradient(circle at 1px 1px, rgba(255,255,255,0.3) 1px, transparent 0)', 
-            backgroundSize: '32px 32px' 
-          }} />
+      <section className="py-24 lg:py-32 relative overflow-hidden bg-background">
+        <div className="absolute inset-0 pointer-events-none">
+          <div className="absolute top-0 left-1/4 w-[500px] h-[500px] bg-primary/5 rounded-full blur-[120px]" />
+          <div className="absolute bottom-0 right-1/4 w-[400px] h-[400px] bg-harvest-gold/5 rounded-full blur-[100px]" />
         </div>
-        <motion.div 
-          className="absolute top-10 right-10 w-96 h-96 bg-harvest-gold/20 rounded-full blur-[100px]"
-          animate={{ scale: [1, 1.2, 1], opacity: [0.2, 0.3, 0.2] }}
-          transition={{ duration: 8, repeat: Infinity }}
-        />
         
         <div className="container mx-auto px-4 lg:px-8 relative">
           <motion.div 
@@ -444,16 +436,16 @@ export default function Index() {
             variants={fadeUpVariant}
             custom={0}
           >
-            <h2 className="text-white mb-6">
+            <h2 className="text-foreground mb-6">
               {t.landing.cta.title}
             </h2>
-            <p className="text-xl lg:text-2xl text-white/80 mb-12 font-bengali leading-relaxed">
+            <p className="text-xl lg:text-2xl text-muted-foreground mb-12 font-bengali leading-relaxed">
               {t.landing.cta.subtitle}
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button 
                 size="lg"
-                className="text-lg h-14 px-8 rounded-2xl bg-white text-primary hover:bg-white/90 shadow-xl hover:shadow-2xl transition-all group"
+                className="text-lg h-14 px-8 bg-primary text-primary-foreground hover:bg-primary/90 shadow-xl hover:shadow-2xl transition-all group"
                 onClick={() => navigate(user ? '/dashboard' : '/auth?tab=signup')}
               >
                 {t.landing.cta.startFree}
@@ -462,7 +454,7 @@ export default function Index() {
               <Button 
                 size="lg" 
                 variant="outline"
-                className="text-lg h-14 px-8 rounded-2xl border-white/30 text-white hover:bg-white/10"
+                className="text-lg h-14 px-8 border-border text-foreground hover:bg-muted"
               >
                 {t.landing.cta.contact}
               </Button>
