@@ -86,7 +86,7 @@ export function FeaturesShowcase() {
   const [activeFeature, setActiveFeature] = useState(features[0]);
 
   return (
-    <section className="py-24 lg:py-32 bg-muted/30 relative overflow-hidden">
+    <section className="py-16 lg:py-20 bg-muted/30 relative overflow-hidden">
       {/* Subtle pattern */}
       <div className="absolute inset-0 opacity-[0.02]" style={{
         backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23000000' fill-opacity='1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
@@ -146,7 +146,7 @@ export function FeaturesShowcase() {
                     }`} />
                   </div>
                   <div>
-                    <h3 className={`font-semibold mb-1 transition-colors ${
+                    <h3 className={`text-sm sm:text-base font-semibold mb-1 transition-colors ${
                       activeFeature.id === feature.id
                         ? 'text-foreground'
                         : 'text-muted-foreground'
@@ -206,7 +206,7 @@ export function FeaturesShowcase() {
 
                 {/* Feature Details */}
                 <div className="p-6 lg:p-8">
-                  <h3 className="text-2xl font-bold text-foreground mb-3">
+                  <h3 className="text-lg sm:text-xl font-bold text-foreground mb-3">
                     {activeFeature.title}
                   </h3>
                   <p className="text-muted-foreground mb-6 leading-relaxed">

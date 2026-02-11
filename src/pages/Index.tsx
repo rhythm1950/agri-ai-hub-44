@@ -123,13 +123,13 @@ export default function Index() {
   ];
 
   return (
-    <div className="min-h-screen bg-background overflow-x-hidden">
+    <div className="min-h-screen bg-background overflow-x-hidden max-w-[1400px] mx-auto">
       <TopBar />
       <Navbar />
       <LivingFieldBackground />
       
       {/* Hero Section */}
-      <section className="relative pt-20 pb-24 lg:pt-32 lg:pb-36 overflow-hidden">
+      <section className="relative pt-16 pb-16 lg:pt-24 lg:pb-24 overflow-hidden">
         {/* Ambient Background */}
         <div className="absolute inset-0 pointer-events-none">
           <div className="absolute top-20 left-1/4 w-[600px] h-[600px] bg-primary/5 rounded-full blur-[120px] animate-float-slow" />
@@ -229,7 +229,7 @@ export default function Index() {
       </section>
 
       {/* Stats Section */}
-      <section className="py-20 relative overflow-hidden">
+      <section className="py-12 relative overflow-hidden">
         <div className="absolute inset-0 bg-primary" />
         <div className="absolute inset-0 bg-gradient-to-br from-primary via-primary to-earth-green-dark" />
         <div className="absolute inset-0 opacity-10">
@@ -272,7 +272,7 @@ export default function Index() {
       <FeaturesShowcase />
 
       {/* Benefits Section */}
-      <section className="py-24 lg:py-32">
+      <section className="py-16 lg:py-20">
         <div className="container mx-auto px-4 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-16 lg:gap-24 items-center">
             <motion.div
@@ -355,7 +355,7 @@ export default function Index() {
       <TrustedBy />
 
       {/* Testimonials Section */}
-      <section className="py-24 lg:py-32">
+      <section className="py-16 lg:py-20">
         <div className="container mx-auto px-4 lg:px-8">
           <motion.div 
             className="text-center max-w-3xl mx-auto mb-16"
@@ -421,7 +421,7 @@ export default function Index() {
       <FAQ />
 
       {/* CTA Section */}
-      <section className="py-24 lg:py-32 relative overflow-hidden bg-background">
+      <section className="py-16 lg:py-20 relative overflow-hidden bg-background">
         <div className="absolute inset-0 pointer-events-none">
           <div className="absolute top-0 left-1/4 w-[500px] h-[500px] bg-primary/5 rounded-full blur-[120px]" />
           <div className="absolute bottom-0 right-1/4 w-[400px] h-[400px] bg-harvest-gold/5 rounded-full blur-[100px]" />

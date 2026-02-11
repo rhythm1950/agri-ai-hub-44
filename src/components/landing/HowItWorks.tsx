@@ -47,7 +47,7 @@ const steps = [
 
 export function HowItWorks() {
   return (
-    <section className="py-24 lg:py-32 relative overflow-hidden">
+    <section className="py-16 lg:py-20 relative overflow-hidden">
       {/* Background Elements */}
       <div className="absolute inset-0 pointer-events-none">
         <div className="absolute top-1/2 left-0 w-[600px] h-[600px] bg-primary/5 rounded-full blur-[120px] -translate-y-1/2" />
@@ -103,7 +103,7 @@ export function HowItWorks() {
                   </div>
                 </div>
                 
-                <h3 className="text-xl font-semibold text-foreground mb-3">
+                <h3 className="text-base font-semibold text-foreground mb-3">
                   {step.title}
                 </h3>
                 <p className="text-muted-foreground leading-relaxed">

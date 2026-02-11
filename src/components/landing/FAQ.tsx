@@ -49,7 +49,7 @@ const faqs = [
 
 export function FAQ() {
   return (
-    <section className="py-24 lg:py-32 bg-muted/30">
+    <section className="py-16 lg:py-20 bg-muted/30">
       <div className="container mx-auto px-4 lg:px-8">
         <motion.div 
           className="text-center max-w-3xl mx-auto mb-16"
@@ -86,7 +86,7 @@ export function FAQ() {
                 value={`item-${index}`}
                 className="bg-card border border-border/50 rounded-2xl px-6 data-[state=open]:shadow-lg transition-shadow"
               >
-                <AccordionTrigger className="text-left font-semibold text-foreground hover:no-underline py-5">
+                <AccordionTrigger className="text-left text-sm sm:text-base font-semibold text-foreground hover:no-underline py-4">
                   {faq.question}
                 </AccordionTrigger>
                 <AccordionContent className="text-muted-foreground pb-5 leading-relaxed">
