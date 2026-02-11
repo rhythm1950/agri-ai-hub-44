@@ -32,7 +32,7 @@ const metrics = [
 
 export function TrustedBy() {
   return (
-    <section className="py-20 lg:py-28 border-y border-border/50">
+    <section className="py-14 lg:py-18 border-y border-border/50">
       <div className="container mx-auto px-4 lg:px-8">
         <motion.div 
           className="text-center mb-16"
