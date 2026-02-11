@@ -51,7 +51,45 @@ export function Footer() {
   ];
 
   return (
-    <footer className="relative bg-gradient-to-b from-primary to-earth-green-dark text-primary-foreground overflow-hidden">
+    <footer className="relative overflow-hidden">
+      {/* Newsletter Section - White Background */}
+      <div className="bg-background relative">
+        <div className="absolute inset-0 pointer-events-none">
+          <div className="absolute top-0 right-1/4 w-[400px] h-[400px] bg-primary/5 rounded-full blur-[120px]" />
+        </div>
+        <div className="container mx-auto px-4 lg:px-8 relative">
+          <div className="py-12 lg:py-16 border-b border-border">
+          <div className="grid lg:grid-cols-2 gap-8 items-center">
+            <div>
+              <h3 className="text-2xl lg:text-3xl font-bold mb-3 text-foreground">
+                {language === 'en' ? 'Stay updated with AgriAI' : 'AgriAI এর সাথে আপডেট থাকুন'}
+              </h3>
+              <p className="text-muted-foreground text-lg">
+                {language === 'en' 
+                  ? 'Get the latest farming insights, AI updates, and agricultural tips delivered to your inbox.' 
+                  : 'সর্বশেষ কৃষি অন্তর্দৃষ্টি এবং AI আপডেট পান।'}
+              </p>
+            </div>
+            <div className="flex flex-col sm:flex-row gap-3">
+              <div className="relative flex-1">
+                <Mail className="absolute left-4 top-1/2 -translate-y-1/2 h-5 w-5 text-muted-foreground" />
+                <Input 
+                  placeholder={language === 'en' ? 'Enter your email' : 'আপনার ইমেল লিখুন'}
+                  className="h-14 pl-12 bg-muted border-border text-foreground placeholder:text-muted-foreground transition-colors"
+                />
+              </div>
+              <Button className="h-14 px-8 bg-primary hover:bg-primary/90 text-primary-foreground font-semibold shadow-lg hover:shadow-xl transition-all gap-2">
+                {language === 'en' ? 'Subscribe' : 'সাবস্ক্রাইব'}
+                <Send className="h-4 w-4" />
+              </Button>
+            </div>
+          </div>
+        </div>
+        </div>
+      </div>
+
+      {/* Dark Footer Content */}
+      <div className="bg-gradient-to-b from-primary to-earth-green-dark text-primary-foreground relative">
       {/* Background Pattern */}
       <div className="absolute inset-0 opacity-5">
         <div className="absolute inset-0" style={{ 
@@ -60,47 +98,7 @@ export function Footer() {
         }} />
       </div>
       
-      {/* Ambient Glow */}
-      <motion.div 
-        className="absolute top-0 left-1/4 w-[600px] h-[400px] bg-harvest-gold/10 rounded-full blur-[150px]"
-        animate={{ opacity: [0.1, 0.2, 0.1] }}
-        transition={{ duration: 8, repeat: Infinity }}
-      />
-      <motion.div 
-        className="absolute bottom-0 right-1/4 w-[400px] h-[300px] bg-tech-teal/10 rounded-full blur-[120px]"
-        animate={{ opacity: [0.1, 0.15, 0.1] }}
-        transition={{ duration: 6, repeat: Infinity, delay: 2 }}
-      />
-
       <div className="container mx-auto px-4 lg:px-8 relative">
-        {/* Newsletter Section */}
-        <div className="py-12 lg:py-16 border-b border-white/10">
-          <div className="grid lg:grid-cols-2 gap-8 items-center">
-            <div>
-              <h3 className="text-2xl lg:text-3xl font-bold mb-3">
-                {language === 'en' ? 'Stay updated with AgriAI' : 'AgriAI এর সাথে আপডেট থাকুন'}
-              </h3>
-              <p className="text-white/70 text-lg">
-                {language === 'en' 
-                  ? 'Get the latest farming insights, AI updates, and agricultural tips delivered to your inbox.' 
-                  : 'সর্বশেষ কৃষি অন্তর্দৃষ্টি এবং AI আপডেট পান।'}
-              </p>
-            </div>
-            <div className="flex flex-col sm:flex-row gap-3">
-              <div className="relative flex-1">
-                <Mail className="absolute left-4 top-1/2 -translate-y-1/2 h-5 w-5 text-white/50" />
-                <Input 
-                  placeholder={language === 'en' ? 'Enter your email' : 'আপনার ইমেল লিখুন'}
-                  className="h-14 pl-12 bg-white/10 border-white/20 text-white placeholder:text-white/50 rounded-xl focus:bg-white/15 transition-colors"
-                />
-              </div>
-              <Button className="h-14 px-8 bg-harvest-gold hover:bg-harvest-gold/90 text-primary font-semibold rounded-xl shadow-lg hover:shadow-xl transition-all gap-2">
-                {language === 'en' ? 'Subscribe' : 'সাবস্ক্রাইব'}
-                <Send className="h-4 w-4" />
-              </Button>
-            </div>
-          </div>
-        </div>
 
         {/* Main Footer Content */}
         <div className="py-12 lg:py-16">
@@ -246,6 +244,7 @@ export function Footer() {
             ))}
           </div>
         </div>
+      </div>
       </div>
     </footer>
   );
