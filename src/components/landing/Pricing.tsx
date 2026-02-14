@@ -77,7 +77,7 @@ export function Pricing() {
   const navigate = useNavigate();
 
   return (
-    <section className="py-16 lg:py-20 relative overflow-hidden">
+    <section id="pricing" className="py-16 lg:py-20 relative overflow-hidden">
       {/* Background */}
       <div className="absolute inset-0 pointer-events-none">
         <div className="absolute top-0 left-1/4 w-[500px] h-[500px] bg-harvest-gold/5 rounded-full blur-[120px]" />

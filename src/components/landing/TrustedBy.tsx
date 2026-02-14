@@ -26,7 +26,7 @@ const partners = [
 const metrics = [
   { value: '50+', label: 'Partner Organizations' },
   { value: '15', label: 'Districts Covered' },
-  { value: '₹2.5B', label: 'Farmer Savings' },
+  { value: '৳2.5B', label: 'Farmer Savings' },
   { value: '3+', label: 'Years of Impact' },
 ];
 
