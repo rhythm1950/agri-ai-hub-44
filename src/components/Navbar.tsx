@@ -11,7 +11,7 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger 
 } from '@/components/ui/dropdown-menu';
-import { Globe, User, LogOut, Menu, X, Leaf, LayoutDashboard, Settings, WifiOff, Wifi } from 'lucide-react';
+import { Globe, User, LogOut, Menu, X, Leaf, LayoutDashboard, Settings, WifiOff, Wifi, Brain, FlaskConical, Database, BarChart3, HelpCircle, CreditCard } from 'lucide-react';
 import { Badge } from '@/components/ui/badge';
 
 export function Navbar() {
@@ -24,10 +24,7 @@ export function Navbar() {
   const [isOnline, setIsOnline] = useState(navigator.onLine);
 
   useEffect(() => {
-    const handleScroll = () => {
-      setScrolled(window.scrollY > 20);
-    };
-    
+    const handleScroll = () => setScrolled(window.scrollY > 20);
     const handleOnline = () => setIsOnline(true);
     const handleOffline = () => setIsOnline(false);
     
@@ -49,6 +46,27 @@ export function Navbar() {
   };
 
   const isActive = (path: string) => location.pathname === path;
+  const isHome = location.pathname === '/';
+
+  const navItems = [
+    { label: t.nav.home, to: '/' },
+    ...(user ? [{ label: t.nav.dashboard, to: '/dashboard' }] : []),
+    ...(isHome ? [
+      { label: 'Features', to: '#features', isAnchor: true },
+      { label: 'Pricing', to: '#pricing', isAnchor: true },
+      { label: 'FAQ', to: '#faq', isAnchor: true },
+    ] : []),
+  ];
+
+  const handleNavClick = (item: { to: string; isAnchor?: boolean }) => {
+    if (item.isAnchor) {
+      const el = document.querySelector(item.to);
+      el?.scrollIntoView({ behavior: 'smooth' });
+    } else {
+      navigate(item.to);
+    }
+    setMobileOpen(false);
+  };
 
   return (
     <>
@@ -78,7 +96,7 @@ export function Navbar() {
         }`}
       >
         <div className="container mx-auto px-4 lg:px-8">
-          <div className="flex items-center justify-between h-16 lg:h-20">
+          <div className="flex items-center justify-between h-16 lg:h-18">
             {/* Logo */}
             <Link to="/" className="flex items-center gap-3 group">
               <motion.div 
@@ -86,37 +104,37 @@ export function Navbar() {
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
-                <div className="w-11 h-11 rounded-2xl bg-primary flex items-center justify-center shadow-lg">
+                <div className="w-10 h-10 rounded-2xl bg-primary flex items-center justify-center shadow-lg">
                   <Leaf className="h-5 w-5 text-primary-foreground" />
                 </div>
-                <motion.div 
-                  className="absolute -inset-1 rounded-2xl bg-harvest-gold/20 blur-lg"
-                  animate={{ opacity: [0.3, 0.6, 0.3] }}
-                  transition={{ duration: 3, repeat: Infinity }}
-                />
               </motion.div>
               <div className="flex flex-col">
-                <span className="font-bold text-xl text-foreground leading-tight tracking-tight">AgriAI Hub</span>
+                <span className="font-bold text-lg text-foreground leading-tight tracking-tight">AgriAI Hub</span>
                 <span className="text-[10px] tracking-widest text-muted-foreground uppercase hidden sm:block">Intelligent Farming</span>
               </div>
             </Link>
 
             {/* Desktop Nav */}
             <div className="hidden lg:flex items-center gap-1">
-              <NavLink to="/" active={isActive('/')}>
-                {t.nav.home}
-              </NavLink>
-              {user && (
-                <NavLink to="/dashboard" active={isActive('/dashboard')}>
-                  {t.nav.dashboard}
-                </NavLink>
-              )}
+              {navItems.map((item) => (
+                <button
+                  key={item.to}
+                  onClick={() => handleNavClick(item)}
+                  className={`relative px-3 py-2 rounded-xl text-sm font-medium transition-all duration-300 ${
+                    !item.isAnchor && isActive(item.to)
+                      ? 'text-primary bg-primary/10' 
+                      : 'text-muted-foreground hover:text-foreground'
+                  }`}
+                >
+                  {item.label}
+                </button>
+              ))}
               
-              {/* Online Status */}
-              <div className="mx-3 h-6 w-px bg-border" />
+              <div className="mx-2 h-5 w-px bg-border" />
+              
               <Badge 
                 variant="outline" 
-                className={`gap-1.5 px-3 py-1 text-xs font-medium border-0 ${
+                className={`gap-1.5 px-2.5 py-0.5 text-xs font-medium border-0 ${
                   isOnline 
                     ? 'bg-tech-teal/10 text-tech-teal' 
                     : 'bg-destructive/10 text-destructive'
@@ -126,14 +144,14 @@ export function Navbar() {
                 {isOnline ? 'Online' : 'Offline'}
               </Badge>
               
-              <div className="mx-3 h-6 w-px bg-border" />
+              <div className="mx-2 h-5 w-px bg-border" />
               
               {/* Language Toggle */}
               <DropdownMenu>
                 <DropdownMenuTrigger asChild>
-                  <Button variant="ghost" size="sm" className="gap-2 h-10 px-3 text-muted-foreground hover:text-foreground">
+                  <Button variant="ghost" size="sm" className="gap-2 h-9 px-3 text-muted-foreground hover:text-foreground">
                     <Globe className="h-4 w-4" />
-                    <span className="font-medium">{language === 'en' ? 'EN' : 'বাং'}</span>
+                    <span className="font-medium text-xs">{language === 'en' ? 'EN' : 'বাং'}</span>
                   </Button>
                 </DropdownMenuTrigger>
                 <DropdownMenuContent align="end" className="w-40 bg-card/95 backdrop-blur-xl border-border/50">
@@ -156,11 +174,11 @@ export function Navbar() {
               {user ? (
                 <DropdownMenu>
                   <DropdownMenuTrigger asChild>
-                    <Button variant="ghost" size="sm" className="gap-2 h-10 ml-2">
-                      <div className="w-8 h-8 rounded-xl bg-primary flex items-center justify-center text-primary-foreground text-sm font-semibold">
+                    <Button variant="ghost" size="sm" className="gap-2 h-9 ml-1">
+                      <div className="w-7 h-7 rounded-xl bg-primary flex items-center justify-center text-primary-foreground text-xs font-semibold">
                         {user.name.charAt(0).toUpperCase()}
                       </div>
-                      <span className="font-medium hidden xl:inline">{user.name.split(' ')[0]}</span>
+                      <span className="font-medium text-sm hidden xl:inline">{user.name.split(' ')[0]}</span>
                     </Button>
                   </DropdownMenuTrigger>
                   <DropdownMenuContent align="end" className="w-56 bg-card/95 backdrop-blur-xl border-border/50">
@@ -184,17 +202,17 @@ export function Navbar() {
                   </DropdownMenuContent>
                 </DropdownMenu>
               ) : (
-                <div className="flex gap-2 ml-2">
+                <div className="flex gap-2 ml-1">
                   <Button 
                     variant="ghost" 
                     onClick={() => navigate('/auth')} 
-                    className="h-10 text-muted-foreground hover:text-foreground"
+                    className="h-9 text-sm text-muted-foreground hover:text-foreground"
                   >
                     {t.nav.login}
                   </Button>
                   <Button 
                     onClick={() => navigate('/auth?tab=signup')} 
-                    className="h-10 rounded-xl px-6 bg-primary hover:bg-primary/90 shadow-md hover:shadow-lg transition-all"
+                    className="h-9 rounded-xl px-5 text-sm bg-primary hover:bg-primary/90 shadow-md hover:shadow-lg transition-all"
                   >
                     {t.nav.signup}
                   </Button>
@@ -222,15 +240,20 @@ export function Navbar() {
               exit={{ opacity: 0, height: 0 }}
               className="lg:hidden absolute top-full left-0 right-0 bg-background/95 backdrop-blur-xl border-b border-border shadow-xl overflow-hidden"
             >
-              <div className="container mx-auto px-4 py-6 space-y-3">
-                <MobileNavLink to="/" active={isActive('/')} onClick={() => setMobileOpen(false)}>
-                  {t.nav.home}
-                </MobileNavLink>
-                {user && (
-                  <MobileNavLink to="/dashboard" active={isActive('/dashboard')} onClick={() => setMobileOpen(false)}>
-                    {t.nav.dashboard}
-                  </MobileNavLink>
-                )}
+              <div className="container mx-auto px-4 py-6 space-y-2">
+                {navItems.map((item) => (
+                  <button
+                    key={item.to}
+                    onClick={() => handleNavClick(item)}
+                    className={`block w-full text-left px-4 py-3 rounded-xl font-medium transition-all ${
+                      !item.isAnchor && isActive(item.to)
+                        ? 'bg-primary/10 text-primary' 
+                        : 'text-foreground hover:bg-muted'
+                    }`}
+                  >
+                    {item.label}
+                  </button>
+                ))}
                 
                 {/* Language Toggle Mobile */}
                 <div className="py-4 border-t border-border">
@@ -268,9 +291,12 @@ export function Navbar() {
                           <p className="text-sm text-muted-foreground">{user.email}</p>
                         </div>
                       </div>
-                      <MobileNavLink to="/profile" onClick={() => setMobileOpen(false)}>
+                      <button 
+                        onClick={() => { navigate('/profile'); setMobileOpen(false); }}
+                        className="block w-full text-left px-4 py-3 rounded-xl text-foreground hover:bg-muted font-medium"
+                      >
                         {t.nav.profile}
-                      </MobileNavLink>
+                      </button>
                       <button 
                         className="w-full text-left px-4 py-3 rounded-xl text-destructive hover:bg-destructive/10 transition-colors flex items-center gap-2 font-medium"
                         onClick={handleLogout}
@@ -303,43 +329,5 @@ export function Navbar() {
         </AnimatePresence>
       </motion.nav>
     </>
-  );
-}
-
-function NavLink({ to, active, children }: { to: string; active?: boolean; children: React.ReactNode }) {
-  return (
-    <Link 
-      to={to} 
-      className={`relative px-4 py-2 rounded-xl text-sm font-medium transition-all duration-300 ${
-        active 
-          ? 'text-primary' 
-          : 'text-muted-foreground hover:text-foreground'
-      }`}
-    >
-      {children}
-      {active && (
-        <motion.div 
-          layoutId="activeNav"
-          className="absolute inset-0 bg-primary/10 rounded-xl -z-10"
-          transition={{ type: "spring", bounce: 0.2, duration: 0.6 }}
-        />
-      )}
-    </Link>
-  );
-}
-
-function MobileNavLink({ to, active, onClick, children }: { to: string; active?: boolean; onClick?: () => void; children: React.ReactNode }) {
-  return (
-    <Link 
-      to={to}
-      onClick={onClick}
-      className={`block px-4 py-3 rounded-xl font-medium transition-all ${
-        active 
-          ? 'bg-primary/10 text-primary' 
-          : 'text-foreground hover:bg-muted'
-      }`}
-    >
-      {children}
-    </Link>
   );
 }

@@ -77,7 +77,7 @@ export function Chatbot() {
       {/* Floating Button */}
       <motion.button
         onClick={() => setIsOpen(!isOpen)}
-        className="fixed bottom-6 right-6 z-50 w-14 h-14 rounded-2xl bg-primary text-primary-foreground shadow-xl flex items-center justify-center"
+        className="fixed bottom-6 left-6 z-50 w-14 h-14 rounded-2xl bg-primary text-primary-foreground shadow-xl flex items-center justify-center"
         whileHover={{ scale: 1.05 }}
         whileTap={{ scale: 0.95 }}
         animate={isOpen ? { rotate: 0 } : { rotate: 0 }}
@@ -120,7 +120,7 @@ export function Chatbot() {
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 20, scale: 0.95 }}
             transition={{ duration: 0.3, ease: "easeOut" }}
-            className={`fixed bottom-24 right-6 z-50 w-[380px] flex flex-col shadow-2xl border-0 overflow-hidden rounded-3xl bg-card ${
+            className={`fixed bottom-24 left-6 z-50 w-[380px] flex flex-col shadow-2xl border-0 overflow-hidden rounded-3xl bg-card ${
               isMinimized ? 'h-16' : 'h-[550px]'
             }`}
           >
